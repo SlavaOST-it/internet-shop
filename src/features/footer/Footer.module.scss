@@ -1,0 +1,25 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 70px;
+  padding: 0 10px;
+
+  background-color: var(--dark);
+
+  border-radius: 6px;
+
+  .rights{
+    a{
+      color: var(--violet);
+    }
+  }
+
+  .social_links{
+
+    .logo{
+      margin-left: 18px;
+    }
+  }
+}
