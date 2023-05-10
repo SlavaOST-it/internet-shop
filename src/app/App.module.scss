@@ -1,0 +1,14 @@
+
+.app {
+  height: 100vh;
+  max-width: 1274px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+
+
+  .container {
+    display: flex;
+  }
+}

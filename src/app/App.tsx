@@ -1,13 +1,23 @@
 import React from 'react';
-import './App.css';
+import s from "./App.module.scss";
+import {AppRoutes} from "../utils/routes/AppRoutes";
+import {Header} from "../features/header/Header";
+import {Footer} from "../features/footer/Footer";
+import {Sidebar} from '../features/sidebar/Sidebar';
 
-function App() {
+
+export const App = () => {
     return (
-        <div>
-            SHOP
+        <div className={s.app}>
+            <Header/>
+
+            <div className={s.container}>
+                <Sidebar/>
+                <AppRoutes/>
+            </div>
+
+            <Footer/>
         </div>
 
     );
 }
-
-export default App;
