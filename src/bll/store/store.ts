@@ -2,15 +2,22 @@ import {combineReducers} from "redux";
 import {configureStore} from "@reduxjs/toolkit";
 import thunkMiddleware, {ThunkAction, ThunkDispatch} from 'redux-thunk'
 
+import {appReducer} from "../reducers/app-reducer";
+import {productsReducer} from "../reducers/products-reducer";
+import {categoriesReducer} from "../reducers/categories-reducer";
 
+import {AppReducerActionTypes} from "../reducers/reducersTypes/appReducer-types";
+import {ProductsReducerActionTypes} from "../reducers/reducersTypes/productsReducer-types";
+import {CategoriesReducerActionTypes} from "../reducers/reducersTypes/categoriesReducer-types";
 
 
 const rootReducer = combineReducers({
-
+    app: appReducer,
+    products: productsReducer,
+    categories: categoriesReducer,
 })
 
-type ReduxActionType = any
-
+type ReduxActionType = AppReducerActionTypes | CategoriesReducerActionTypes | ProductsReducerActionTypes
 
 
 export const store = configureStore({
