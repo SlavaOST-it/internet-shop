@@ -14,10 +14,9 @@ import instagram from "../../assets/image/icons/instagram.svg"
 export const Footer = () => {
     const linkLogo = [
         {id: 1, name: "youtube", img: youtube, link: "https://www.youtube.com/"},
-        {id: 1, name: "facebook", img: facebook, link: "https://www.facebook.com/"},
-        {id: 1, name: "instagram", img: instagram, link: "https://www.instagram.com/"},
+        {id: 2, name: "facebook", img: facebook, link: "https://www.facebook.com/"},
+        {id: 3, name: "instagram", img: instagram, link: "https://www.instagram.com/"},
     ]
-
 
     return (
         <div className={s.footer}>
