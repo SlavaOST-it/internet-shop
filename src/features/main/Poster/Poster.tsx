@@ -1,13 +1,13 @@
 import React from 'react';
 
-import s from "./Poster.module.scss"
+import s from "../homePage/HomePage.module.scss"
 
 import homeImg from "../../../assets/image/homeImg.png"
 
 
 export const Poster = () => {
     return (
-        <section className={s.poster}>
+        <section className={s.home}>
             <h2 className={s.title}>BIG SALE 20%</h2>
 
             <div className={s.product}>
