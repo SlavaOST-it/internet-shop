@@ -1,9 +1,10 @@
 import React, {FC} from 'react';
+import {Link} from "react-router-dom";
 
 import s from "./Categories.module.scss"
-import {ProductListType} from "../../../api/apiConfig/typesAPI/productsAPI-types";
-import {Link} from "react-router-dom";
+
 import {Category} from "../../../api/apiConfig/typesAPI/categoriesAPI-types";
+import {ImageChecker} from "../../../utils/error-utils/imageChecker/ImageChecker";
 
 
 type CategoriesBlockType = {
@@ -26,7 +27,7 @@ export const CategoriesBlock: FC<CategoriesBlockType> = ({title, categories, amo
                               className={s.item}
                         >
                             <div className={s.image}>
-                                <img src={el.image} alt={"product"}/>
+                                <ImageChecker src={el.image} alt={"category"}/>
                             </div>
 
                             <h4 className={s.name}>{el.name}</h4>
