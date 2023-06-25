@@ -1,7 +1,5 @@
-import {AxiosError} from "axios";
+import {AxiosError, AxiosResponse} from "axios";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-
-import {AppThunkType} from "../store/store";
 
 import {setAppStatusAC} from "./app-reducer";
 import {productsAPI} from "../../api/productsAPI";
@@ -10,6 +8,7 @@ import {AppStatus} from "../../common/types/commonTypes";
 
 import {baseErrorHandler} from "../../utils/error-utils/error-utils";
 import {AllProductsType, ProductListType} from "../../api/apiConfig/typesAPI/productsAPI-types";
+import {call, put, takeEvery} from "redux-saga/effects";
 
 
 const initialState: AllProductsType = {
@@ -30,14 +29,20 @@ export const productsReducer = slice.reducer;
 export const {setAllProductsAC} = slice.actions;
 
 
-// ===== ThunkCreators ===== //
-export const getAllProductsTC = (): AppThunkType => async (dispatch) => {
-    dispatch(setAppStatusAC({status: AppStatus.LOADING}))
+// ===== Sagas ===== //
+function* getAllProductsSaga(){
+    yield put(setAppStatusAC({status: AppStatus.LOADING}))
     try {
-        const res = await productsAPI.getAllProducts()
-        dispatch(setAllProductsAC({productsList: res.data}))
+        const res:AxiosResponse<ProductListType[]> = yield call (productsAPI.getAllProducts)
+        yield put(setAllProductsAC({productsList: res.data}))
     } catch (e) {
-        baseErrorHandler(e as Error | AxiosError, dispatch)
-        dispatch(setAppStatusAC({status: AppStatus.FAILED}))
+        baseErrorHandler(e as Error | AxiosError)
+        yield put(setAppStatusAC({status: AppStatus.FAILED}))
     }
+}
+
+export const getAllProducts = () => ({type: "PRODUCTS/GET_ALL_PRODUCTS"})
+
+export function* productsWatcherSaga () {
+    yield takeEvery("PRODUCTS/GET_ALL_PRODUCTS", getAllProductsSaga)
 }

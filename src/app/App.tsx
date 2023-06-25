@@ -4,17 +4,16 @@ import {Header} from "../features/header/Header";
 import {Footer} from "../features/footer/Footer";
 import {Sidebar} from '../features/sidebar/Sidebar';
 import {useAppDispatch} from "../utils/hooks/hooks";
-import {getAllCategoriesTC} from "../bll/reducers/categories-reducer";
-import {getAllProductsTC} from "../bll/reducers/products-reducer";
+import {getAllCategories} from "../bll/reducers/categories-reducer";
+import {getAllProducts} from "../bll/reducers/products-reducer";
 
 
 export const App = () => {
     const dispatch = useAppDispatch()
 
-
     useEffect(() => {
-        dispatch(getAllCategoriesTC())
-        dispatch(getAllProductsTC())
+        dispatch(getAllCategories())
+        dispatch(getAllProducts())
     }, [dispatch])
 
     return (

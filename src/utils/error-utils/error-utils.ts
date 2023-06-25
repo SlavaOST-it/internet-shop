@@ -1,14 +1,17 @@
 import axios, {AxiosError} from "axios";
-import {Dispatch} from "redux";
+import {put} from "redux-saga/effects";
+
+import {AppStatus} from "../../common/types/commonTypes";
+import {setAppErrorAC, setAppStatusAC} from "../../bll/reducers/app-reducer";
 
 
-export const baseErrorHandler = (e: Error | AxiosError, dispatch: Dispatch) => {
+export function* baseErrorHandler(e: Error | AxiosError) {
     const err = e as Error | AxiosError
     if (axios.isAxiosError(err)) {
         const error = err.response?.data
             ? (err.response.data as ({ error: string })).error
             : err.message
-        // dispatch(setAppStatusAC({status: AppStatus.FAILED}))
-        // dispatch(setAppErrorAC({error: error}))
+        yield put(setAppStatusAC({status: AppStatus.FAILED}))
+        yield put(setAppErrorAC({error: error}))
     }
 }
