@@ -1,11 +1,13 @@
-import {setAllCategoriesAC} from "../categories-reducer";
+import {getAllCategories, setAllCategoriesAC} from "../categories-reducer";
 
 
-
-
-// ===== Action Types ==== //
-
+// ===== Action Types ===== //
 type SetAllCategoriesAT = ReturnType<typeof setAllCategoriesAC>
 
 
-export type CategoriesReducerActionTypes = SetAllCategoriesAT
+// ===== Action Types for Sagas ===== //
+type getAllCategoriesAT = ReturnType<typeof getAllCategories>
+
+
+// =====   ===== //
+export type CategoriesReducerActionTypes = SetAllCategoriesAT | getAllCategoriesAT

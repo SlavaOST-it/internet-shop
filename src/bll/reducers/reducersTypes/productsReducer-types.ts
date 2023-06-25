@@ -1,9 +1,14 @@
-import {setAllProductsAC} from "../products-reducer";
+import {getAllProducts, setAllProductsAC} from "../products-reducer";
 
 
 
 // ===== Action Types ==== //
-
 type SetAllProductsAT = ReturnType<typeof setAllProductsAC>
 
-export type ProductsReducerActionTypes = SetAllProductsAT
+
+// ===== Action Types for Sagas ===== //
+type getAllProductsAT = ReturnType<typeof getAllProducts>
+
+
+// =====   ===== //
+export type ProductsReducerActionTypes = SetAllProductsAT | getAllProductsAT
