@@ -3,8 +3,8 @@ import {Link} from "react-router-dom";
 
 import s from "./Categories.module.scss"
 
-import {Category} from "../../../api/apiConfig/typesAPI/categoriesAPI-types";
-import {ImageChecker} from "../../../utils/error-utils/imageChecker/ImageChecker";
+import {Category} from "api/apiConfig/typesAPI/categoriesAPI-types";
+import {ImageChecker} from "utils/error-utils/imageChecker/ImageChecker";
 
 
 type CategoriesBlockType = {

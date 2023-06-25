@@ -1,6 +1,6 @@
 import React, {FC, useState} from 'react';
 
-import baseImage from "../../../assets/image/imageNotFound.jpg"
+import baseImage from "assets/image/imageNotFound.jpg"
 
 
 type ImageCheckerType = {

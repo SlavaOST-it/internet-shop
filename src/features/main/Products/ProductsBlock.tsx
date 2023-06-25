@@ -2,8 +2,8 @@ import React, {FC} from 'react';
 
 import s from "./Products.module.scss"
 
-import {ProductListType} from "../../../api/apiConfig/typesAPI/productsAPI-types";
-import {ImageChecker} from "../../../utils/error-utils/imageChecker/ImageChecker";
+import {ProductListType} from "api/apiConfig/typesAPI/productsAPI-types";
+import {ImageChecker} from "utils/error-utils/imageChecker/ImageChecker";
 
 
 type ProductsBlockType = {

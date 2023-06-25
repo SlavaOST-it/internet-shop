@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 import s from "./Footer.module.scss"
 
-import {PATH} from "../../utils/routes/routes";
+import {PATH} from "utils/routes/routes";
 
 import logo from "../../assets/image/logo/LOGO_1.svg"
 import youtube from "../../assets/image/icons/youtube.svg"
